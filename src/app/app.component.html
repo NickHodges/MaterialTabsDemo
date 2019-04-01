@@ -1,5 +1,13 @@
-<mat-tab-group>
-  <mat-tab label="Tab 1"> <app-tab1></app-tab1> </mat-tab>
-  <mat-tab label="Tab 2"> <app-tab2></app-tab2> </mat-tab>
-  <mat-tab label="Tab 3"> <app-tab3></app-tab3> </mat-tab>
-</mat-tab-group>
+<nav mat-tab-nav-bar>
+  <a
+    mat-tab-link
+    *ngFor="let route of storedRoutes"
+    [routerLink]="route.path"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive"
+  >
+    {{ route.data['label'] }}
+  </a>
+</nav>
+<router-outlet></router-outlet>
