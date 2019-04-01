@@ -1,13 +1,13 @@
 <nav mat-tab-nav-bar>
   <a
     mat-tab-link
-    *ngFor="let route of storedRoutes"
-    [routerLink]="route.path"
+    *ngFor="let sd of storedData"
+    [routerLink]="sd.FRoute.path"
     routerLinkActive
     #rla="routerLinkActive"
     [active]="rla.isActive"
   >
-    {{ route.data['label'] }}
+    {{ sd.FLabel }}
   </a>
 </nav>
 <router-outlet></router-outlet>

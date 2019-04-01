@@ -1,6 +1,12 @@
 import { routes } from './app-routing.module';
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { analyzeFileForInjectables } from '@angular/compiler';
+
+class StoredData {
+  FRoute: Route;
+  FLabel: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -9,13 +15,20 @@ import { Route, Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   activeLinkIndex = -1;
-  storedRoutes: Route[] = [];
+  public storedData: StoredData[] = [];
 
-  constructor(public router: Router) {}
+  constructor() {}
 
   ngOnInit() {
-    this.router.config.forEach(route => {
-      this.storedRoutes.push(route);
+    let sd: StoredData;
+    let s: string;
+
+    routes.forEach(theRoute => {
+      if (theRoute.data) {
+        s = theRoute.data['label'];
+        sd = { FRoute: theRoute, FLabel: s };
+        this.storedData.push(sd);
+      }
     });
   }
 }
