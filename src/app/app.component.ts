@@ -1,8 +1,6 @@
 import { routes } from './app-routing.module';
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
-import { analyzeFileForInjectables } from '@angular/compiler';
-
+import { Route } from '@angular/router';
 class StoredData {
   FRoute: Route;
   FLabel: string;
@@ -14,7 +12,6 @@ class StoredData {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  activeLinkIndex = -1;
   public storedData: StoredData[] = [];
 
   constructor() {}

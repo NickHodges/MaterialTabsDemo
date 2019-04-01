@@ -12,8 +12,7 @@ export const routes: Routes = [
     component: Tab1Component,
     data: {
       label: 'Tab 1',
-      link: '/tab1',
-      index: 0
+      link: '/tab1'
     }
   },
   {
@@ -21,8 +20,7 @@ export const routes: Routes = [
     component: Tab2Component,
     data: {
       label: 'Tab 2',
-      link: '/tab2',
-      index: 1
+      link: '/tab2'
     }
   },
   {
@@ -30,8 +28,7 @@ export const routes: Routes = [
     component: Tab3Component,
     data: {
       label: 'Tab 3',
-      link: '/tab3',
-      index: 2
+      link: '/tab3'
     }
   }
 ];
