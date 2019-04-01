@@ -1,6 +1,6 @@
 import { routes } from './app-routing.module';
 import { Component, OnInit } from '@angular/core';
-import { Data, Route } from '@angular/router';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,12 @@ import { Data, Route } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   activeLinkIndex = -1;
-  FData: Data;
-  storedRoutes: Route[];
+  storedRoutes: Route[] = [];
 
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit() {
-    routes.forEach(route => {
+    this.router.config.forEach(route => {
       this.storedRoutes.push(route);
     });
   }
